@@ -27,3 +27,6 @@
     TO_TIMESTAMP('{{ timestamp }}', '{{ format }}')
 {%- endmacro -%}
 
+{%- macro fabric__string_to_timestamp(format, timestamp) -%}
+    CONVERT(datetime2, '{{ timestamp }}', {{ format }})
+{%- endmacro -%}

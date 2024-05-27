@@ -21,3 +21,13 @@
 {%- endif -%}
 
 {%- endmacro -%}
+
+{%- macro fabric__limit_rows() %}
+
+{%- if target.schema == 'prod' %}
+    {{ return('') }}
+{%- else -%}
+    {{ return('TOP 100') }}
+{%- endif -%}
+
+{%- endmacro -%}
