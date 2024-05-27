@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: dimension_city_source
+    database: Warehouse_Fabric_Adapter
+    schema:  dbo
+    tables: 
+      - name: dimension_city
+  - name: dimension_customer_source
+    database: Warehouse_Fabric_Adapter
+    schema:  dbo
+    tables: 
+      - name: dimension_customer
+  - name: dimension_date_source
+    database: Warehouse_Fabric_Adapter
+    schema:  dbo
+    tables: 
+      - name: dimension_date
+  - name: dimension_employee_source
+    database: Warehouse_Fabric_Adapter
+    schema:  dbo
+    tables: 
+      - name: dimension_employee
+  - name: dimension_stock_item_source
+    database: Warehouse_Fabric_Adapter
+    schema:  dbo
+    tables: 
+      - name: dimension_stock_item
+  - name: fact_sale_source
+    database: Warehouse_Fabric_Adapter
+    schema:  dbo
+    tables: 
+      - name: fact_sale
