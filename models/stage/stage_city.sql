@@ -8,6 +8,8 @@ rsrc: '!City'
 hashed_columns: 
     hk_h_City:
         - CityKey
+
+
 {%- endset -%}
 
 {%- set metadata_dict = fromyaml(yaml_metadata) -%}
