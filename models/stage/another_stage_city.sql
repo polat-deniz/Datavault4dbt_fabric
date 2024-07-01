@@ -22,9 +22,10 @@ derived_columns:
     validTo_addmonth:
         value: "DATEADD(month, 1, ValidFrom)"
         datatype: datetime2
-        src_cols_required: ValidFrom
+        src_cols_required:
+            - ValidFrom
     cont_sales:
-        value: "Continent + ' - ' + SalesTerritory"
+        value: CONCAT_WS(' - ', Continent, SalesTerritory)
         datatype: "varchar(255)"
         src_cols_required:
             - Continent

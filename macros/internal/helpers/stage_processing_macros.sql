@@ -48,7 +48,14 @@
     {%- if columns_dict is mapping -%}
         {%- for key, value in columns_dict.items() -%}
             {%- if value is mapping and 'src_cols_required' in value.keys() -%}
-                {%- do extracted_input_columns.append(value['src_cols_required']) -%}
+                {% set src_cols_required = value['src_cols_required'] %}
+                {% if src_cols_required is iterable and (src_cols_required is not string and src_cols_required is not mapping) %}
+                    {%- for col in src_cols_required -%}
+                        {%- do extracted_input_columns.append(col) -%}
+                    {%- endfor -%}
+                {%- else -%}
+                        {%- do extracted_input_columns.append(src_cols_required) -%}
+                {%- endif -%} 
             {%- elif value is mapping and 'value' in value.keys() and 'src_cols_required' not in value.keys() -%}
                 {# Do nothing. No source column required. #}    
             {%- elif value is mapping and value.is_hashdiff -%}
